@@ -16,15 +16,8 @@ for match in matches:
     red = match["alliances"]["red"]["team_keys"]
 
     for team in blue:
-        if team not in teams:
-            teams[team] = 1
-        else:
-            teams[team] += 1
-
+        teams[team] = teams.get(team, 0) + 1
     for team in red:
-        if team not in teams:
-            teams[team] = -1
-        else:
-            teams[team] -= 1
+        teams[team] = teams.get(team, 0) - 1
 
 print(teams)
